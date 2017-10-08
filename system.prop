@@ -1,0 +1,4 @@
+# system.prop for perry
+
+# Display
+ro.sf.lcd_density=320

@@ -1,0 +1,6 @@
+[
+  {
+    "repository":  "android_device_motorola_msm8937-common",
+    "target_path": "device/motorola/msm8937-common"
+  }
+]
