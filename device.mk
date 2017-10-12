@@ -16,9 +16,20 @@
 # Inherit from msm8937-common
 $(call inherit-product, device/motorola/msm8937-common/msm8937.mk)
 
+# Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/camera/msm8917_mot_perry_camera.xml:system/etc/camera/msm8917_mot_perry_camera.xml \
+    $(LOCAL_PATH)/configs/camera/imx219_chromatix.xml:system/etc/camera/imx219_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h8_chromatix.xml:system/etc/camera/s5k4h8_chromatix.xml \
+	$(LOCAL_PATH)/configs/camera/mot_ov5695_l5695fa0_chromatix.xml:system/etc/camera/mot_ov5695_l5695fa0_chromatix.xml
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.target.rc
 
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-perry.conf:system/etc/thermal-engine-perry.conf
