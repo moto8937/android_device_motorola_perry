@@ -24,3 +24,45 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+
+on boot
+    #change permission for capsensor
+    chmod 0660 /sys/class/capsense/enable
+    chown system system sys/class/capsense/enable
+    chmod 0660 /sys/class/capsense/reset
+    chown system system sys/class/capsense/reset
+
+    #change permissions for other sensors
+    chown system system "/sys/class/sensors/bma25x-accel/enable"
+    chown system system "/sys/class/sensors/bma25x-accel/poll_delay"
+    chown system system "/sys/devices/virtual/bst/ACC/int_mode"
+    chown system system "/sys/devices/virtual/bst/ACC/flush"
+    chown system system "/sys/devices/virtual/bst/ACC/flatdown"
+    chown system system "/sys/kernel/range/als_enable"
+    chown system system "/sys/kernel/range/set_delay_ms"
+    chown system system "/sys/kernel/range/enable_sar"
+    chown system system "/sys/kernel/range/enable_stow"
+    chown system system "/sys/kernel/range/near"
+    chown system system "/sys/kernel/range/als_lux"
+    chown system system "/sys/kernel/range/flush"
+    chown system system "/sys/class/sensors/mxg3300_compass/enable"
+    chown system system "/sys/class/sensors/mxg3300_compass/flush"
+    chown system system "/sys/class/sensors/mxg3300_compass/poll_delay"
+    chown system system "/sys/class/sensors/mxg3300_compass/self_test"
+
+    chmod 0664 "/sys/class/sensors/bma25x-accel/enable"
+    chmod 0664 "/sys/class/sensors/bma25x-accel/poll_delay"
+    chmod 0664 "/sys/devices/virtual/bst/ACC/int_mode"
+    chmod 0664 "/sys/devices/virtual/bst/ACC/flush"
+    chmod 0664 "/sys/devices/virtual/bst/ACC/flatdown"
+    chmod 0664 "/sys/kernel/range/als_enable"
+    chmod 0664 "/sys/kernel/range/set_delay_ms"
+    chmod 0664 "/sys/kernel/range/enable_sar"
+    chmod 0664 "/sys/kernel/range/enable_stow"
+    chmod 0664 "/sys/kernel/range/near"
+    chmod 0664 "/sys/kernel/range/als_lux"
+    chmod 0664 "/sys/kernel/range/flush"
+    chmod 0664 "/sys/class/sensors/mxg3300_compass/enable"
+    chmod 0664 "/sys/class/sensors/mxg3300_compass/flush"
+    chmod 0664 "/sys/class/sensors/mxg3300_compass/poll_delay"
+    chmod 0664 "/sys/class/sensors/mxg3300_compass/self_test"
