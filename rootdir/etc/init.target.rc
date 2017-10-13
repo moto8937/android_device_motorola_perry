@@ -66,3 +66,22 @@ on boot
     chmod 0664 "/sys/class/sensors/mxg3300_compass/flush"
     chmod 0664 "/sys/class/sensors/mxg3300_compass/poll_delay"
     chmod 0664 "/sys/class/sensors/mxg3300_compass/self_test"
+
+# Egistec fingerprint feature
+on post-fs-data
+    mkdir /data/misc/egistec 0700 system system
+    chmod 0660 /sys/devices/platform/egis_input/navigation_event
+    chmod 0660 /sys/devices/platform/egis_input/navigation_enable
+    chmod 0660 /sys/devices/soc/0.et320/etspi_enable
+    chown system system /sys/devices/platform/egis_input/navigation_enable
+    chown system system /sys/devices/platform/egis_input/navigation_event
+    chown system system /sys/devices/soc/0.et320/etspi_enable
+
+# Egistec fingerprint fp daemon start
+service etsd /system/bin/etsd
+    user system
+    class late_start
+
+on property:ro.hw.fps=false
+    stop etsd
+    stop fingerprintd
