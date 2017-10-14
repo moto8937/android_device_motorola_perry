@@ -1,0 +1,17 @@
+type etsd, domain;
+type etsd_exec, exec_type, file_type;
+
+init_daemon_domain(etsd)
+
+binder_use(etsd)
+binder_service(etsd)
+binder_call(etsd, fingerprintd)
+allow etsd etsd_service:service_manager { add find };
+allow etsd system_server:binder call;
+
+r_dir_file(etsd, firmware_file)
+allow etsd sysfs_mmi_fp:dir r_dir_perms;
+allow etsd sysfs_mmi_fp:file rw_file_perms;
+allow etsd etsd_device:chr_file rw_file_perms;
+allow etsd ion_device:chr_file r_file_perms;
+allow etsd tee_device:chr_file rw_file_perms;

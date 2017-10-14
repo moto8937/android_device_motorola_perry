@@ -1,0 +1,5 @@
+/system/bin/etsd                        u:object_r:etsd_exec:s0
+/sys/devices/platform/egis_input(/.*)?  u:object_r:sysfs_mmi_fp:s0
+/sys/devices/soc/0\.et320(/.*)?         u:object_r:sysfs_mmi_fp:s0
+/data/misc/egistec(/.*)?                u:object_r:fingerprintd_data_file:s0
+/dev/esfp0                              u:object_r:etsd_device:s0
