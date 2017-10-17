@@ -18,7 +18,9 @@ $(call inherit-product, device/motorola/msm8937-common/msm8937.mk)
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/configs/audio_platform_info_extcodec.xml:system/etc/audio_platform_info_extcodec.xml
 
 # Camera
 PRODUCT_COPY_FILES += \
